@@ -18,11 +18,16 @@ module.exports = {
         db.Users
             .findOne({ email: req.body.email }, function (err, user) {
                 if (user) {
+                    console.log("fail")
                     res.status(409).json(err);
                 } else {
+                    console.log("fuck me")
                     db.Users.create(req.body)
-                        .then(dbModel => res.json(dbModel._id))
-                        .catch(err => res.status(422).json(err));
+                        .then(dbModel => res.json(
+                            {
+                            message: "success register",
+                            id: dbModel._id
+                        })).catch(err => res.status(422).json(err));
                 }
             });
     }

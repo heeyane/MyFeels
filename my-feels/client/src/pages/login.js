@@ -7,47 +7,46 @@ import User from "../components/User";
 import Logo from "../assets/myfeels-logo-lg.png";
 
 function Login({ authUser }) {
-    //login form
+    // start page with login form
     const [formName, setFormName] = useState("");
-
-    //no initial login error
+    // start page with no login error
     const [loginError, setLoginError] = useState("");
 
-    //click button to change view
+    // change view on button click
     const handleButtons = (event) => {
         setFormName(event.target.value);
     };
 
-    //submit form
+    // form submission
     const handleSubmitUser = (values) => {
         formName === "login" ? handleLogin(values) : handleSignup(values);
     };
 
-    //user login
+    // user login
     const handleLogin = (userData) => {
         API.login(userData)
             .then((res) => {
                 authUser(res);
             })
             .catch((err) => {
-                console.log("Error: ", err)
-                setLoginError("Login")
+                console.log("error: ", err);
+                setLoginError("login");
             });
     };
 
-    //user signup
+    // user signup
     const handleSignup = (userData) => {
         API.signup(userData)
             .then((res) => {
                 authUser(res);
             })
             .catch((err) => {
-                console.log("Error: ", err)
-                setLoginError("Signup")
+                console.log("error: ", err);
+                setLoginError("signup");
             });
     };
 
-    return(
+    return (
         <main style={{ backgroundColor: "#BFE2FF" }}>
             <div className="flexbox-container" style={{ backgroundColor: "white" }}>
                 <br />
@@ -57,7 +56,7 @@ function Login({ authUser }) {
                             Login
                         </Button>
                         <Button variant="outline-primary" size="lg" value="signup" onClick={handleButtons}>
-                            Sign Up
+                            Signup
                         </Button>
                     </ButtonGroup>
                     <br />
@@ -72,7 +71,7 @@ function Login({ authUser }) {
                                         <br />
                                         <br />
                                         <br />
-                                        <img src={Logo} alt="How are you feeling?" />
+                                        <img src={Logo} alt="How's Your Spirit?" />
                                     </div>
                                     <br />
                                     <h2 style={{ color: "#BFE2FF" }}>Login to your account:</h2>
@@ -90,10 +89,10 @@ function Login({ authUser }) {
                                         <br />
                                         <br />
                                         <br />
-                                        <img src={Logo} alt="How are you feeling?" />
+                                        <img src={Logo} alt="My Feels" />
                                     </div>
                                     <br />
-                                    <h2 style={{ color: "#FFC300" }}>Sign up for an Account:</h2>
+                                    <h2 style={{ color: "#FFC300" }}>Sign up for an account:</h2>
                                     <br />
                                     {loginError === "signup" ? <Alert variant="danger">Error. User with this email already exists. Please try logging in.</Alert> : <></>}
                                     <User name={formName} submitUser={handleSubmitUser} />
@@ -108,12 +107,12 @@ function Login({ authUser }) {
                                         <br />
                                         <br />
                                         <br />
-                                        <img src={Logo} alt="How are you feeling?" />
+                                        <img src={Logo} alt="My Feels" />
                                     </div>
                                     <br />
                                     <div style={{ textAlign: "center", margin: "5px" }}>
                                         <h2 style={{ color: "#BFE2FF" }}>
-                                            <em>“The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart.”</em>
+                                            <em>"The best and most beautiful things in the world cannot be seen or even touched. They must be felt with the heart."</em>
                                         </h2>
                                         <br />
                                         <h3 style={{ color: "#FFC300" }}>Hellen Keller</h3>

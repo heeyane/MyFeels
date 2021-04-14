@@ -5,20 +5,24 @@ const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("client/build"));
+// }
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.DB_URI || "mongodb://localhost/users");
+mongoose.connect(process.env.DB_URI || "mongodb://localhost/my-feels",{
+
+}).then(()=>{
+    console.log("mongo connecting")
+});
 
 // Start the API server
 app.listen(PORT, function () {

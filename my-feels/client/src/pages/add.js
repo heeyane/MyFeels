@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+
 import moment from "moment";
 
 import "../components/App/app.css";
 import EmotionMap from "../utils/EmotionMap";
 import EnterEmotion from "../components/EnterEmotion";
 import EnterActivity from "../components/EnterActivity";
-
 
 function Add({ submitEntry }) {
     // entry submission status
@@ -61,9 +61,9 @@ function Add({ submitEntry }) {
                         case "complete":
                             return (
                                 <div className="container">
-                                    <h3 style={{ color: "#FFC300", textAlign: "center" }}>You've successfully submitted a mood entry.</h3>
+                                    <h3 style={{ color: "#FFC300", textAlign: "center" }}>Thank you! You have successfully added a new mood entry.</h3>
                                     <br />
-                                    <h3 style={{ color: "#BFE2FF", textAlign: "center" }}>Take a look at your mood trend.</h3>
+                                    <h3 style={{ color: "#BFE2FF", textAlign: "center" }}>Let's go look at your trends.</h3>
                                     <br />
                                     <Button outline color="primary" size="lg" block as={Link} to="/review">
                                         Review your entries
@@ -71,7 +71,7 @@ function Add({ submitEntry }) {
                                 </div>
                             );
                         default:
-                            return <div>Oops!</div>;
+                            return <div>oops!</div>;
                     }
                 })()}
             </div>

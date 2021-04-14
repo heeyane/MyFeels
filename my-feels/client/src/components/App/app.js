@@ -1,9 +1,11 @@
 /** @format */
 
+// Global
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Local
 import API from "../../utils/API";
 import Navbar from "../Navbar";
 import Login from "../../pages/login";
@@ -13,6 +15,7 @@ import Review from "../../pages/review";
 import Learn from "../../pages/learn";
 import Oops from "../../pages/oops";
 
+// Export
 function App() {
     // current user
     const [user, setUser] = useState(null);
@@ -71,7 +74,7 @@ function App() {
                         <Navbar logoutUser={handleLogout} />
 
                         <Switch>
-                            <Route exact path={["/", "/hows-your-spirit", "/home"]}>
+                            <Route exact path={["/", "/my-feels", "/home"]}>
                                 <Home entries={userEntries} />
                             </Route>
                             <Route path="/add">
