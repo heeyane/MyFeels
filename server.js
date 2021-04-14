@@ -1,5 +1,5 @@
 /** @format */
-
+require("dotenv").config()
 const express = require("express");
 
 const mongoose = require("mongoose");
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.DB_URI || "mongodb://localhost/my-feels",{
+mongoose.connect(process.env.DB_URI, {
 
 }).then(()=>{
     console.log("mongo connecting")
