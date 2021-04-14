@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8080;
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, './client/build')));
 // Serve up static assets
 // if (process.env.NODE_ENV === "production") {
 //     app.use(express.static("client/build"));
