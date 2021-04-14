@@ -18,7 +18,7 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "ng build --prod"
   },
   "author": "",
   "license": "ISC",
