@@ -13,8 +13,9 @@ module.exports = {
                 res.json(err);
             });
     },
-    getUserEntries: function (req, res) {
-        db.Users
+    getUserEntries: async function (req, res) {
+        console.log(req.params)
+        await db.Users
             .findOne({ _id: req.params.id })
             .populate('entries')
             .exec(function (err, user) {
